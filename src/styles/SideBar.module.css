@@ -1,0 +1,78 @@
+/* *{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+} */
+.Container{
+    display:flex;
+    margin-top: 70px;
+    width: fit-content;
+    float: left;
+    
+}
+
+Main{
+    width: 100%;
+    padding: 20px;
+}
+
+.Hamburger{
+    display: flex;
+    color: #fff;
+    padding: 10px 0px;
+    gap: 15px;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SideBar{
+    background-color: rgb(35, 35, 35);
+    color: white;
+    height: 100vh;
+    width: 200px;
+    padding: 10px 10px;
+    transition: all 0.5s;
+}
+
+.TopSection{
+    /* display: flex; */
+    align-items:center;
+    /* padding:20px 15px; */
+}
+
+.Link{
+    display: flex;
+    color: white;
+    padding: 10px 0px;
+    gap: 15px;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link:hover{
+    background-color: aqua;
+    border: 1px solid white;
+    color: darkslategray;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+
+.Active{
+    background:darkslategray;
+    border: 1px solid white;
+    color: white;
+}
+
+.Text{
+    font-size: inherit;
+    float: right;
+    margin-top: 10%;
+}
+
+.Icon{
+    display: flex;
+}

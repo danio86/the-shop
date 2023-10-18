@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+// import SideBar from "./components/SideBar";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -32,6 +33,7 @@ function App() {
       <SetCurrentUserContext.Provider value={setCurrentUser}>
         <div className={styles.App}>
           <NavBar />
+          {/* <SideBar /> */}
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/" render={() => <h1>Home page</h1>} />
