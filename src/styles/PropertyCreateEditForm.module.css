@@ -1,0 +1,12 @@
+.Container {
+    min-height: 350px;
+    /* margin: 50px 50px; */
+  }
+
+.ContentBlocks {
+    margin: 20px 20px;
+}
+
+.Headline {
+    margin: 20px;
+}

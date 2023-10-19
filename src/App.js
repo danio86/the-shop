@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import PropertyCreateForm from "./pages/properties/PropertyCreateForm";
 // import SideBar from "./components/SideBar";
 
 export const CurrentUserContext = createContext();
@@ -39,6 +40,7 @@ function App() {
               <Route exact path="/" render={() => <h1>Home page</h1>} />
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
+              <Route exact path="/properties/create" render={() => <PropertyCreateForm />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>
