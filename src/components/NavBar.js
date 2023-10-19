@@ -26,7 +26,7 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/property/create"
+      to="/properties/create"
     >
       <i className="far fa-plus-square"></i>Add property
     </NavLink>
