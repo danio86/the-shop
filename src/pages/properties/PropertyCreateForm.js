@@ -25,8 +25,13 @@ function PropertyCreateForm() {
     title: "",
     description: "",
     image: "",
+    price:"",
+    size:"",
+    num_rooms:"",
+    location:"",
+
   });
-  const { title, description, image } = propertyData;
+  const { title, description, image, price, size, num_rooms, location } = propertyData;
 
   const history = useHistory();
   const imageInput = useRef(null);
@@ -54,6 +59,10 @@ function PropertyCreateForm() {
 
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("price", price);
+    formData.append("size", size);
+    formData.append("num_rooms", num_rooms);
+    formData.append("location", location);
     formData.append("image", imageInput.current.files[0]);
 
     try {
@@ -61,6 +70,7 @@ function PropertyCreateForm() {
       history.push(`/properties/${data.id}`);
     } catch (err) {
       console.log(err);
+      console.log(err.response)
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -99,6 +109,73 @@ function PropertyCreateForm() {
           {message}
         </Alert>
       ))}
+
+
+      <Form.Group>
+        <Form.Label>Location</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="location"
+          value={location}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Number of rooms</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="num_rooms"
+          value={num_rooms}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+
+      <Form.Group>
+        <Form.Label>Size</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="size"
+          value={size}
+          onChange={handleChange}
+        />
+        </Form.Group>
+        {errors?.content?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
+
+    <Form.Group>
+      <Form.Label>Price</Form.Label>
+      <Form.Control
+        as="textarea"
+        rows={6}
+        name="price"
+        value={price}
+        onChange={handleChange}
+    />
+    </Form.Group>
+    {errors?.content?.map((message, idx) => (
+      <Alert variant="warning" key={idx}>
+        {message}
+      </Alert>
+    ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
