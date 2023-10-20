@@ -21,17 +21,31 @@ import { Image } from "react-bootstrap";
 function PropertyCreateForm() {
   const [errors, setErrors] = useState({});
 
-  const [propertyData, setPropertyData] = useState({
-    title: "",
-    description: "",
-    image: "",
-    price:"",
-    size:"",
-    num_rooms:"",
-    location:"",
+  // const [propertyData, setPropertyData] = useState({
+  //   title: "",
+  //   description: "",
+  //   image: "",
+  //   price:"",
+  //   size:"",
+  //   num_rooms:"",
+  //   location:"",
 
+  // });
+
+  const [propertyData, setPropertyData] = useState({
+    title: "test",
+    description: "test",
+    image: "",
+    price: 10000.00, // Set an initial value or leave it empty as per your requirements
+    size: 100,
+    num_rooms: 3,
+    location: "Dublin",
+    status: "Available",
+    property_type: "Loft",
+    num_interests: 0
   });
-  const { title, description, image, price, size, num_rooms, location } = propertyData;
+
+  const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
 
   const history = useHistory();
   const imageInput = useRef(null);
@@ -62,8 +76,13 @@ function PropertyCreateForm() {
     formData.append("price", price);
     formData.append("size", size);
     formData.append("num_rooms", num_rooms);
+    formData.append("status", status);
+    formData.append("property_type", property_type);
+    formData.append("num_interests", num_interests);
     formData.append("location", location);
     formData.append("image", imageInput.current.files[0]);
+
+
 
     try {
       const { data } = await axiosReq.post("/properties/", formData);
@@ -109,6 +128,60 @@ function PropertyCreateForm() {
           {message}
         </Alert>
       ))}
+
+{/* // const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData; */}
+      <Form.Group>
+        <Form.Label>Interested person</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="num_interests"
+          value={num_interests}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      
+      
+      
+      <Form.Group>
+        <Form.Label>Type</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="property_type"
+          value={property_type}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      
+      
+      
+      <Form.Group>
+        <Form.Label>Status</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="status"
+          value={status}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
 
 
       <Form.Group>
@@ -161,7 +234,7 @@ function PropertyCreateForm() {
         ))}
 
 
-    <Form.Group>
+    {/* <Form.Group>
       <Form.Label>Price</Form.Label>
       <Form.Control
         as="textarea"
@@ -172,6 +245,22 @@ function PropertyCreateForm() {
     />
     </Form.Group>
     {errors?.content?.map((message, idx) => (
+      <Alert variant="warning" key={idx}>
+        {message}
+      </Alert>
+    ))} */}
+
+    <Form.Group>
+      <Form.Label>Price</Form.Label>
+      <Form.Control
+        type="number" // Use the appropriate input type for decimal values
+        name="price"
+        step="0.01" // Specify the step attribute for decimal places
+        value={price}
+        onChange={handleChange}
+      />
+    </Form.Group>
+    {errors?.price?.map((message, idx) => (
       <Alert variant="warning" key={idx}>
         {message}
       </Alert>
