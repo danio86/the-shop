@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useState } from "react";
 // import styles from "../../styles/Post.module.css";
 import styles from "../../styles/Properties.module.css";
 
@@ -23,41 +22,29 @@ const Property = (props) => {
     image,
     updated_at,
     propertyPage,
-    setProperty,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const [interested, setInterested] = useState(prospectivebuyer_id);
+  const [count, setCount] = useState(prospectivebuyer_count);
 
   const handleIamInterested = async () => {
     try {
       const { data } = await axiosRes.post("/prospectivebuyers/", { property: id });
-      setProperty((prevProperty) => ({
-        ...prevProperty,
-        results: prevProperty.results.map((property) => {
-          return property.id === id
-            ? { ...property, prospectivebuyer_count: property.prospectivebuyer_count + 1, prospectivebuyer_id: data.id }
-            : property;
-        }),
-      }));
+      setInterested(data.id);
+      setCount(count + 1);
     } catch (err) {
       console.log(err, 'no one is interested in this property');
     }
   };
 
-
   const handleNotInterestedAnymore = async () => {
     try {
-      await axiosRes.delete(`/prospectivebuyers/${prospectivebuyer_id}/`);
-      setProperty((prevProperty) => ({
-        ...prevProperty,
-        results: prevProperty.results.map((property) => {
-          return property.id === id
-            ? { ...property, prospectivebuyer_count: property.prospectivebuyer_count - 1, prospectivebuyer_id: null }
-            : property;
-        }),
-      }));
+      await axiosRes.delete(`/prospectivebuyers/${interested}/`);
+      setInterested(null);
+      setCount(count - 1);
     } catch (err) {
       console.log(err);
     }
@@ -91,7 +78,7 @@ const Property = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : prospectivebuyer_id ? (
+          ) : interested ? (
             <span onClick={handleNotInterestedAnymore}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
@@ -102,12 +89,12 @@ const Property = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              overlay={<Tooltip>Log in to like prperties!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {prospectivebuyer_count}
+          {count}
           <Link to={`/property/${id}`}>
             <i className="far fa-comments" />
           </Link>
