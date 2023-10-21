@@ -1,12 +1,13 @@
 
 import React from "react";
-import styles from "../../styles/Post.module.css";
-// import styles from "../../styles/Properties.module.css";
+// import styles from "../../styles/Post.module.css";
+import styles from "../../styles/Properties.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Property = (props) => {
   const {
@@ -14,23 +15,57 @@ const Property = (props) => {
     owner,
     profile_id,
     profile_image,
-    inquiry_count,
-    interested_count,
-    interested_id,
+    inquiries_count,
+    prospectivebuyer_count,
+    prospectivebuyer_id,
     title,
     description,
     image,
     updated_at,
     propertyPage,
+    setProperty,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
 
+  const handleIamInterested = async () => {
+    try {
+      const { data } = await axiosRes.post("/prospectivebuyers/", { property: id });
+      setProperty((prevProperty) => ({
+        ...prevProperty,
+        results: prevProperty.results.map((property) => {
+          return property.id === id
+            ? { ...property, prospectivebuyer_count: property.prospectivebuyer_count + 1, prospectivebuyer_id: data.id }
+            : property;
+        }),
+      }));
+    } catch (err) {
+      console.log(err, 'no one is interested in this property');
+    }
+  };
+
+
+  const handleNotInterestedAnymore = async () => {
+    try {
+      await axiosRes.delete(`/prospectivebuyers/${prospectivebuyer_id}/`);
+      setProperty((prevProperty) => ({
+        ...prevProperty,
+        results: prevProperty.results.map((property) => {
+          return property.id === id
+            ? { ...property, prospectivebuyer_count: property.prospectivebuyer_count - 1, prospectivebuyer_id: null }
+            : property;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <Card className={styles.Post}>
-      <Card.Body>
+    <Card className={styles.Properties}>
+      <Card.Body className={styles.AddProp}>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
@@ -45,7 +80,7 @@ const Property = (props) => {
       <Link to={`/property/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
-      {/* <Card.Body>
+      <Card.Body className={styles.AddProp}>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {description && <Card.Text>{description}</Card.Text>}
         <div className={styles.PostBar}>
@@ -56,12 +91,12 @@ const Property = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : interested_id ? (
-            <span onClick={() => {}}>
+          ) : prospectivebuyer_id ? (
+            <span onClick={handleNotInterestedAnymore}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleIamInterested}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
@@ -72,13 +107,13 @@ const Property = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {interested_count}
-          <Link to={`/posts/${id}`}>
+          {prospectivebuyer_count}
+          <Link to={`/property/${id}`}>
             <i className="far fa-comments" />
           </Link>
-          {inquiry_count}
+          {inquiries_count}
         </div>
-      </Card.Body> */}
+      </Card.Body>
     </Card>
   )
 }
