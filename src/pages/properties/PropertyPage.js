@@ -16,7 +16,7 @@ function PropertyPage() {
         const handleMount = async () => {
           try {
             const [{ data: property }] = await Promise.all([
-              axiosReq.get(`/property/${id}`),
+              axiosReq.get(`/properties/${id}/`),
             ]);
             setProperty({ results: [property] });
             console.log(property);

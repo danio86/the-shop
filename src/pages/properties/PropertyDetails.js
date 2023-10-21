@@ -5,21 +5,24 @@ import { axiosReq } from "../../api/axiosDefaults";
 function PropertyDetails() {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProperty = async () => {
-      console.log("Fetching property data for ID:", id);
       try {
-        const { data } = await axiosReq.get(`/property/${id}`);
-        console.log("Received property data:", data);
+        const { data } = await axiosReq.get(`/property/${id}/`);
         setProperty(data);
       } catch (err) {
-        console.log("Error fetching property data:", err);
+        setError("Failed to fetch property data. Please try again later.");
       }
     };
 
     fetchProperty();
   }, [id]);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   if (!property) {
     return <div>Loading...</div>;

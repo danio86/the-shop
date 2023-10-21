@@ -1,12 +1,12 @@
-import React from 'react'
-// import styles from "../../styles/Properties.module.css";
+
+import React from "react";
 import styles from "../../styles/Post.module.css";
+// import styles from "../../styles/Properties.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-
 
 const Property = (props) => {
   const {
