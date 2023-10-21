@@ -14,7 +14,11 @@ import Asset from "../../components/Asset";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+
 
 function PropertiesPage({ message, filter = "" }) {
   
@@ -22,11 +26,12 @@ function PropertiesPage({ message, filter = "" }) {
   // const [property, setProperty] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const { data } = await axiosReq.get(`/properties/?${filter}`);
+        const { data } = await axiosReq.get(`/properties/?${filter}search=${query}`);
         setProperties(data);
         setHasLoaded(true);
       } catch (err) {
@@ -35,19 +40,44 @@ function PropertiesPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchProperties();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchProperties();
+    }, 1000);
 
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [filter, query, pathname]);
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search properties"
+          />
+        </Form>
+
         {hasLoaded ? (
           <>
             {properties.results.length ? (
-              properties.results.map((property) => (
+              <InfiniteScroll
+              children={properties.results.map((property) => (
                 <Property key={property.id} {...property} setProperties={setProperties} />
-              ))
+              ))}
+              dataLength={properties.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!properties.next}
+              next={() => fetchMoreData(properties, setProperties)}
+            />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
