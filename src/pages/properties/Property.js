@@ -7,6 +7,8 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router";
 
 const Property = (props) => {
   const {
@@ -26,6 +28,20 @@ const Property = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/properties/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/properties/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const [interested, setInterested] = useState(prospectivebuyer_id);
   const [count, setCount] = useState(prospectivebuyer_count);
@@ -60,7 +76,10 @@ const Property = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && propertyPage && "..."}
+            {is_owner && propertyPage &&  (<MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />)}
           </div>
         </Media>
       </Card.Body>
