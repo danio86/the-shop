@@ -86,7 +86,7 @@ function PropertyCreateForm() {
 
     try {
       const { data } = await axiosReq.post("/properties/", formData);
-      history.push(`/properties/${data.id}`);
+      history.push(`/property/${data.id}`);
     } catch (err) {
       console.log(err);
       console.log(err.response)

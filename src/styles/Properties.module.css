@@ -1,0 +1,33 @@
+.Properties{
+    display:flex;
+    direction: row;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+.AddProp{
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: rgb(35, 35, 35);
+    color: white;
+    min-width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    gap: '10px';
+    text-transform: capitalize;
+    /* text-transform: capitalize, '&:hover': {
+        opacity: 0.9,
+        background-color: aquamarine
+
+    };
+    flex: fullWidth? 1: unset;
+    width: fullWidth? 100% : fit-content; */
+}
+
+.AddProp:hover{
+    background-color: aqua;
+    border: 1px solid white;
+    color: darkslategray;
+    transition: all 0.5s;
+    text-decoration: none;
+}

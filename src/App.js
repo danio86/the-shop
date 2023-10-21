@@ -8,6 +8,8 @@ import SignInForm from "./pages/auth/SignInForm";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import PropertyCreateForm from "./pages/properties/PropertyCreateForm";
+import PropertyDetails from "./pages/properties/PropertyDetails";
+// import PropertyPage from "./pages/properties/PropertyPage";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 // import SideBar from "./components/SideBar";
 
@@ -42,6 +44,9 @@ function App() {
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/property/create" render={() => <PropertyCreateForm />} />
+              {/* <Route exact path="/property/:id" render={() => <PropertyPage />} /> */}
+              <Route exact path="/property/:id" component={PropertyDetails} />
+
               <Route exact path="/posts/create" render={() => <PostCreateForm />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
