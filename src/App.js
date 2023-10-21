@@ -10,12 +10,14 @@ import axios from "axios";
 import PropertyCreateForm from "./pages/properties/PropertyCreateForm";
 import PropertiesPage from "./pages/properties/PropertiesPage";
 import PropertyPage from "./pages/properties/PropertyPage";
+import PropertyEditForm from "./pages/properties/PropertyEditForm";
+
 // import SideBar from "./components/SideBar";
 
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
-// export const CurrentUserContext = createContext();
-// export const SetCurrentUserContext = createContext();
+export const CurrentUserContext = createContext();
+export const SetCurrentUserContext = createContext();
 
 function App() {
 
@@ -74,6 +76,7 @@ function App() {
         <Route exact path="/signin" render={() => <SignInForm />} />
         <Route exact path="/signup" render={() => <SignUpForm />} />
         <Route exact path="/property/create" render={() => <PropertyCreateForm />} />
+        <Route exact path="/properties/:id/edit" render={() => <PropertyEditForm />} />
         <Route exact path="/property/:id" render={() => <PropertyPage />} />
         <Route exact path="/properties" render={() => <PropertiesPage />} />
 
