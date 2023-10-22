@@ -64,7 +64,8 @@ function PropertyPage() {
             ) : null}
             {inquiries.results.length ? (
             inquiries.results.map((inquiry) => (
-              <Inquiry key={inquiry.id} {...inquiry} />
+              <Inquiry key={inquiry.id} {...inquiry} setInquiries={setInquiries} setProperty={setProperty}
+               /> //this sends the setter to the child component
             ))
           ) : currentUser ? (
             <span>No inquiry yet, be the first to inquiry!</span>
