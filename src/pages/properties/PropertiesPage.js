@@ -18,6 +18,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 
@@ -28,6 +29,8 @@ function PropertiesPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
+
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -48,7 +51,7 @@ function PropertiesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
