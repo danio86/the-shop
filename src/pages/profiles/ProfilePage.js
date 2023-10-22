@@ -44,6 +44,7 @@ function ProfilePage() {
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/properties/?owner__profile=${id}`),
+            axiosReq.get(`/prospectivebuyers/?profile=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
@@ -77,7 +78,7 @@ function ProfilePage() {
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.prospectivebuyers_count}</div>
-              <div>followers</div>
+              <div>I am interested</div>
             </Col>
             {/* <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
