@@ -17,8 +17,12 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import { useRedirect } from "../../hooks/useRedirect";
+
+
 
 function PropertyCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   // const [propertyData, setPropertyData] = useState({
