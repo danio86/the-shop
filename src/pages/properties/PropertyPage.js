@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Property from "./Property";
+import Inquiry from "../inquiries/Inquiry";
 
 
 import InquiryCreateForm from "../inquiries/InquiryCreateForm";
@@ -26,11 +27,12 @@ function PropertyPage() {
     useEffect(() => {
         const handleMount = async () => {
           try {
-            const [{ data: property }] = await Promise.all([
+            const [{ data: property }, { data: inquiries }] = await Promise.all([
               axiosReq.get(`/properties/${id}/`),
+              axiosReq.get(`/inquiries/?property=${id}`),
             ]);
             setProperty({ results: [property] });
-            console.log(property);
+            setInquiries(inquiries);
           } catch (err) {
             console.log(err, 'no property found###############');
             console.error(err.stack);
@@ -60,6 +62,15 @@ function PropertyPage() {
             ) : inquiries.results.length ? (
               "Inquiries"
             ) : null}
+            {inquiries.results.length ? (
+            inquiries.results.map((inquiry) => (
+              <Inquiry key={inquiry.id} {...inquiry} />
+            ))
+          ) : currentUser ? (
+            <span>No inquiry yet, be the first to inquiry!</span>
+          ) : (
+            <span>No inquiry... yet</span>
+          )}
         </Container>
       </Col>
       {/* <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
