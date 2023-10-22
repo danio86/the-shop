@@ -23,6 +23,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Property from "../properties/Property";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -61,6 +62,7 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
+    {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -76,17 +78,25 @@ function ProfilePage() {
               <div>{profile?.properties_count}</div>
               <div>properties</div>
             </Col>
-            <Col xs={3} className="my-2">
-              <div>{profile?.prospectivebuyers_count}</div>
+            {/* <Col xs={3} className="my-2">
+              <div>{profile?.prospectivebuyers__owner__profile}</div>
               <div>I am interested</div>
-            </Col>
+            </Col> */}
             {/* <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col> */}
+
+          {/* </Row>
+          <h3 className="m-2">{profile?.prospectivebuyers__owner__profile}</h3>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={3} className="my-2">
+              <div>{profile?.properties_count}</div>
+              <div>I am interested</div>
+            </Col> */}
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right">
+        {/* <Col lg={3} className="text-lg-right">
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
@@ -104,7 +114,7 @@ function ProfilePage() {
                 follow
               </Button>
             ))}
-        </Col>
+        </Col> */}
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
     </>
@@ -118,7 +128,7 @@ function ProfilePage() {
       {profileProperties.results.length ? (
         <InfiniteScroll
           children={profileProperties.results.map((property) => (
-            <Property key={property.id} {...property} setPosts={setProfileProperties} />
+            <Property key={property.id} {...property} setProperties={setProfileProperties} />
           ))}
           dataLength={profileProperties.results.length}
           loader={<Asset spinner />}
@@ -131,6 +141,8 @@ function ProfilePage() {
           message={`No results found, ${profile?.owner} hasn't offered properties yet.`}
         />
       )}
+
+
     </>
   );
 
