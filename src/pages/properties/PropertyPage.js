@@ -9,6 +9,9 @@ import appStyles from "../../App.module.css";
 import Property from "./Property";
 import Inquiry from "../inquiries/Inquiry";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 import InquiryCreateForm from "../inquiries/InquiryCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -63,10 +66,21 @@ function PropertyPage() {
               "Inquiries"
             ) : null}
             {inquiries.results.length ? (
-            inquiries.results.map((inquiry) => (
-              <Inquiry key={inquiry.id} {...inquiry} setInquiries={setInquiries} setProperty={setProperty}
-               /> //this sends the setter to the child component
-            ))
+
+            <InfiniteScroll
+              children={inquiries.results.map((inquiry) => (
+                <Inquiry 
+                  key={inquiry.id} {...inquiry}
+                  setInquiries={setInquiries}
+                  setProperty={setProperty}
+                /> //this sends the setter to the child component 
+              ))}
+              dataLength={inquiries.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!inquiries.next}
+              next={() => fetchMoreData(inquiries, setInquiries)}
+            />
+
           ) : currentUser ? (
             <span>No inquiry yet, be the first to inquiry!</span>
           ) : (
