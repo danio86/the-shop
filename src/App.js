@@ -1,5 +1,6 @@
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
@@ -17,7 +18,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
 
-// import SideBar from "./components/SideBar";
+
 
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
@@ -49,6 +50,7 @@ function App() {
     //   <SetCurrentUserContext.Provider value={setCurrentUser}>
     <div className={styles.App}>
     <NavBar />
+    <SideBar />
     <Container className={styles.Main}>
       <Switch>
         <Route
@@ -58,6 +60,7 @@ function App() {
             <PropertiesPage message="No results found. Adjust the search keyword." />
           )}
         />
+        
         {/* <Route
           exact
           path="/feed"
