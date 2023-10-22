@@ -11,6 +11,7 @@ import PropertyCreateForm from "./pages/properties/PropertyCreateForm";
 import PropertiesPage from "./pages/properties/PropertiesPage";
 import PropertyPage from "./pages/properties/PropertyPage";
 import PropertyEditForm from "./pages/properties/PropertyEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 // import SideBar from "./components/SideBar";
 
@@ -73,6 +74,7 @@ function App() {
             />
           )}
         />
+        <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
         <Route exact path="/signin" render={() => <SignInForm />} />
         <Route exact path="/signup" render={() => <SignUpForm />} />
         <Route exact path="/property/create" render={() => <PropertyCreateForm />} />
