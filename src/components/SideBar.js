@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../styles/SideBar.module.css';
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 
 const SideBar = () => {
   const [expanded, setExpanded] = useState(false);
 
   const toggle = () => setExpanded(!expanded);
+
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
   const items = [
     {
