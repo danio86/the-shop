@@ -8,6 +8,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Property from "./Property";
 import Inquiry from "../inquiries/Inquiry";
+import Image from "../images/Image";
 
 import ImageCreateForm from "../images/ImageCreateForm";
 
@@ -34,12 +35,14 @@ function PropertyPage() {
     useEffect(() => {
         const handleMount = async () => {
           try {
-            const [{ data: property }, { data: inquiries }] = await Promise.all([
+            const [{ data: property }, { data: inquiries }, { data: pictures }] = await Promise.all([
               axiosReq.get(`/properties/${id}/`),
               axiosReq.get(`/inquiries/?property=${id}`),
+              axiosReq.get(`/pictures/?property=${id}`),
             ]);
             setProperty({ results: [property] });
             setInquiries(inquiries);
+            setPictures(pictures);
           } catch (err) {
             console.log(err, 'no property found###############');
             console.error(err.stack);
@@ -98,11 +101,37 @@ function PropertyPage() {
                 profileImage={profile_image}
                 property={id}
                 setProperty={setProperty}
+                pictures={pictures}
                 setPictures={setPictures}
-              />
+            />
             ) : pictures.results.length ? (
               "Pictures"
             ) : null}
+            {pictures.results.length ? (
+              <InfiniteScroll
+                children={pictures.results.map((picture) => (
+                //   <Image 
+                //   key={picture.id} {...picture}
+                //   setPictures={setPictures}
+                //   setProperty={setProperty}
+                // />
+                  <img
+                    key={picture.id}
+                    className={appStyles.Image}
+                    src={picture.pictures}
+                    alt="property"
+                  />
+                ))}
+                dataLength={pictures.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!pictures.next}
+                next={() => fetchMoreData(pictures, setPictures)}
+              />
+            ) : currentUser && currentUser.username === property.results[0]?.owner ? (
+              <span>No pictures yet, be the first to upload!</span>
+            ) : (
+              <span>No pictures... yet</span>
+            )}
 
 
 

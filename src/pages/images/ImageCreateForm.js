@@ -6,38 +6,34 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/ImageCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
+
+
+import Upload from "../../assets/upload.png";
 
 function ImageCreateForm(props) {
   const { property, setProperty, setImages, profileImage, profile_id } = props;
-  const [pictures, setPicture] = useState("");
+  // const [pictures, setPicture] = useState("");
+  const [pictures, setPictures] = useState({ results: [] });
 
   const handleChange = (event) => {
-    setPicture(event.target.value);
+    setPictures({ results: [event.target.files[0]] });
   };
+  
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("property", property);
+    formData.append("picture", pictures.results[0]);
     try {
-      const { data } = await axiosRes.post("/pictures/", {
-        pictures,
-        property,
-      });
-      setPicture((prevComments) => ({
-        ...prevComments,
-        results: [data, ...prevComments.results],
-      }));
-    //   setProperty((prevPost) => ({
-    //     results: [
-    //       {
-    //         ...prevPost.results[0],
-    //         comments_count: prevPost.results[0].comments_count + 1,
-    //       },
-    //     ],
-    //   }));
-    setPicture("");
+      
+      const { data } = await axiosReq.post("/pictures/", formData);
+      setPictures((prevPictures) => ({ results: [data, ...prevPictures.results] }));
+
     } catch (err) {
-      console.log(err);
+      console.error(err.stack);
+      alert('Failed to upload picture. Please try again later.');
     }
   };
 
@@ -51,6 +47,7 @@ function ImageCreateForm(props) {
           <Form.Control
 
             className={styles.imageInput}
+            src={Upload}
             type="file"
             accept="image/*"
             onChange={handleChange}
@@ -59,7 +56,8 @@ function ImageCreateForm(props) {
       </Form.Group>
       <button
         className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!pictures.trim()}
+        // disabled={!pictures.trim()}
+        disabled={!pictures.results.length}
         type="submit"
       >
         add picture
