@@ -37,16 +37,16 @@ function PropertyCreateForm() {
   // });
 
   const [propertyData, setPropertyData] = useState({
-    title: "test",
-    description: "test",
+    title: "Title",
+    description: "describe your property",
     image: "",
-    price: 10000.00, // Set an initial value or leave it empty as per your requirements
-    size: 100,
-    num_rooms: 3,
-    location: "Dublin",
+    price: 0.00, // Set an initial value or leave it empty as per your requirements
+    size: 0.00,
+    num_rooms: 0,
+    location: "",
     status: "Available",
     property_type: "Loft",
-    num_interests: 0
+    num_interests: 0,
   });
 
   const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;

@@ -9,6 +9,8 @@ import appStyles from "../../App.module.css";
 import Property from "./Property";
 import Inquiry from "../inquiries/Inquiry";
 
+import ImageCreateForm from "../images/ImageCreateForm";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
@@ -26,6 +28,7 @@ function PropertyPage() {
     const currentUser = useCurrentUser();
     const profile_image = currentUser?.profile_image;
     const [inquiries, setInquiries] = useState({ results: [] });
+    const [pictures, setPictures] = useState({ results: [] });
 
 
     useEffect(() => {
@@ -87,6 +90,22 @@ function PropertyPage() {
           ) : (
             <span>No inquiry... yet</span>
           )}
+
+            {/*if currentUser is property owner*/}
+            {currentUser && currentUser.username === property.results[0]?.owner ? (
+              <ImageCreateForm
+                profile_id={currentUser.profile_id}
+                profileImage={profile_image}
+                property={id}
+                setProperty={setProperty}
+                setPictures={setPictures}
+              />
+            ) : pictures.results.length ? (
+              "Pictures"
+            ) : null}
+
+
+
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
