@@ -19,25 +19,58 @@ function ImageCreateForm(props) {
   // const [pictures, setPicture] = useState("");
   const [pictures, setPictures] = useState({ results: [] });
 
-  const handleChange = (event) => {
-    setPictures({ results: [event.target.files[0]] });
+  // const handleChange = (event) => {
+  //   setPictures({ results: [event.target.files[0]] });
+  // };
+  
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(pictures);
+      setPictures({
+        ...pictures,
+        image: URL.createObjectURL(event.target.files),
+      });
+    }
   };
-  
-  
+
+  // setPictures({ results: [...event.target.files] });
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("property", property);
+  //   formData.append("picture", pictures.results[0]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("property", property);
-    formData.append("picture", pictures.results[0]);
-    try {
-      const { data } = await axiosReq.post("/pictures/", formData);
-      setPictures((prevPictures) => ({ results: [data, ...prevPictures.results] }));
+    pictures.results.forEach((file) => {
+      formData.append("pictures", file);
+      });
+    
+  //   try {
+  //     const { data } = await axiosReq.post("/pictures/", formData);
+  //     setPictures((prevPictures) => ({ results: [data, ...prevPictures.results] }));
+  //     console.log(setPictures);
+  //   } catch (err) {
+  //     console.error(err.stack);
+  //     alert('Failed to upload picture. Please try again later.');
+  //   }
+  // };
+
+  try {
+    const { data } = await axiosReq.post("/pictures/", formData);
+    setPictures((prevPictures) => ({ results: [data, ...prevPictures.results] }));
+    // Clear the file input field using the ref
+    imageInput.current.value = null;
     } catch (err) {
-      console.error(err.stack);
-      alert('Failed to upload picture. Please try again later.');
+    console.log(imageInput.current.value);
+
+    console.error(err.stack, imageInput.current.value);
+    alert('Failed to upload pictures. Please try again later.');
     }
-  };
+    };
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
