@@ -21,10 +21,10 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularProfiles from "../profiles/PopularProfiles";
 
 
-function PropertyPage() {
+function PropertyPage(props) {
     const { id } = useParams();
     const [property, setProperty] = useState({ results: [] });
-
+    const { images } = props;
 
     const currentUser = useCurrentUser();
     const profile_image = currentUser?.profile_image;
@@ -110,17 +110,22 @@ function PropertyPage() {
             {pictures.results.length ? (
               <InfiniteScroll
                 children={pictures.results.map((picture) => (
-                //   <Image 
-                //   key={picture.id} {...picture}
-                //   setPictures={setPictures}
-                //   setProperty={setProperty}
-                // />
+                  // <Image 
+                  // key={picture.id} {...picture}
+                  // setPictures={setPictures}
+                  // setProperty={setProperty}
+                  // />
                   <img
                     key={picture.id}
                     className={appStyles.Image}
                     src={picture.pictures}
-                    alt="property"
+                    alt="property"  
                   />
+                  // <div>
+                  //     <h1>{property.title}</h1>
+                  //     <p>{property.description}</p>
+                  //     <ImageCreateForm images={images} />
+                  //   </div>
                 ))}
                 dataLength={pictures.results.length}
                 loader={<Asset spinner />}
