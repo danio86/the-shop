@@ -24,41 +24,41 @@ const NavBar = () => {
     }
   };
 
-  const addPropertyIcon = (
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/property/create"
-    >
-      <i className="far fa-plus-square"></i>Add property
-    </NavLink>
-  );
+//   const addPropertyIcon = (
+//     <NavLink
+//       className={styles.NavLink}
+//       activeClassName={styles.Active}
+//       to="/property/create"
+//     >
+//       <i className="far fa-plus-square"></i>Add property
+//     </NavLink>
+//   );
 
   const loggedInIcons = (
     <>
-      <NavLink
+      {/* <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/feed"
       >
         <i className="fas fa-stream"></i>Feed
-      </NavLink>
-      <NavLink
+      </NavLink> */}
+      {/* <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/prospectivebuyers"
       >
         <i className="fas fa-heart"></i>Interesting properties
-      </NavLink>
+      </NavLink> */}
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
-      <NavLink
+      {/* <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-      </NavLink>
+      </NavLink> */}
     </>
   );
   const loggedOutIcons = (
@@ -88,8 +88,9 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addPropertyIcon}
-        <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav"
+        {/* {currentUser && addPropertyIcon} */}
+        {/* {currentUser} */}
+        <Navbar.Toggle style={{ backgroundColor: 'white', borderRadius: '2px' }} ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav"
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">

@@ -56,4 +56,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
+
+
+@media (max-width: 700px) {
+.PropertiesPageCard {
+    width: unset; /* Set width to 100% for screens smaller than 700px */
+    margin: 10px;
+    padding: 5px;
+    float: unset;
+    height: unset;
+}
+}
