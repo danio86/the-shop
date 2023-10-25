@@ -53,9 +53,9 @@ function PropertiesPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname, currentUser]);
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+    <Row className={`h-100 ${styles.PropertiesCard}`}>
+      {/* <Col className="py-2 p-0 p-lg-2" lg={8}> */}
+        {/* <PopularProfiles mobile /> */}
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -74,13 +74,16 @@ function PropertiesPage({ message, filter = "" }) {
           <>
             {properties.results.length ? (
               <InfiniteScroll
+              
+              // className={styles.PropertiesCard}
               children={properties.results.map((property) => (
-                <Property key={property.id} {...property} setProperties={setProperties} />
+                <Property key={property.id} {...property} setProperties={setProperties} className={styles.PropertiesPageCard} />
               ))}
               dataLength={properties.results.length}
               loader={<Asset spinner />}
               hasMore={!!properties.next}
               next={() => fetchMoreData(properties, setProperties)}
+              
             />
             ) : (
               <Container className={appStyles.Content}>
@@ -93,10 +96,10 @@ function PropertiesPage({ message, filter = "" }) {
             <Asset spinner />
           </Container>
         )}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+      {/* </Col> */}
+      {/* <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
       <PopularProfiles />
-      </Col>
+      </Col> */}
     </Row>
   );
 }

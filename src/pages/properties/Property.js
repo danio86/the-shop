@@ -9,6 +9,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router";
+import ImageCreateForm from "../images/ImageCreateForm";
 
 const Property = (props) => {
   const {
@@ -21,7 +22,11 @@ const Property = (props) => {
     prospectivebuyer_id,
     title,
     description,
+    price,
+    location,
+    size,
     image,
+    pictures,
     updated_at,
     propertyPage,
   } = props;
@@ -67,7 +72,7 @@ const Property = (props) => {
   };
 
   return (
-    <Card className={styles.Properties}>
+    <Card className={`${styles.Properties} ${props.className}`}>
       <Card.Body className={styles.AddProp}>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
@@ -89,6 +94,13 @@ const Property = (props) => {
       <Card.Body className={styles.AddProp}>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {description && <Card.Text>{description}</Card.Text>}
+        {size && <Card.Text>{size} m²</Card.Text>}
+        {location && <Card.Text>{location}</Card.Text>}
+        {price && <Card.Text>{price} €</Card.Text>}
+        <Link to={`/pictures/${id}`}>
+          More Images
+          <Card.Img style={{ color: "white" }} src={pictures} />
+        </Link>
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger

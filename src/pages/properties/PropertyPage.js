@@ -31,7 +31,6 @@ function PropertyPage(props) {
     const [inquiries, setInquiries] = useState({ results: [] });
     const [pictures, setPictures] = useState({ results: [] });
 
-
     useEffect(() => {
         const handleMount = async () => {
           try {
@@ -44,7 +43,7 @@ function PropertyPage(props) {
             setInquiries(inquiries);
             setPictures(pictures);
           } catch (err) {
-            console.log(err, 'no property found###############');
+            // console.log(err, 'no property found######');
             console.error(err.stack);
             alert('Failed to fetch property data. Please try again later.');
           }
@@ -55,10 +54,9 @@ function PropertyPage(props) {
 
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
-        {/* <Post {...post.results[0]} setPosts={setPost} postPage /> */}
+    <Row className="h-100 center-contents">
+      {/* <Col className="py-2 p-0 p-lg-2" lg={8}> */}
+        {/* <p>Popular profiles for mobile</p> */}
         <Property {...property.results[0]} setProperty={setProperty} propertyPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -76,11 +74,15 @@ function PropertyPage(props) {
 
             <InfiniteScroll
               children={inquiries.results.map((inquiry) => (
-                <Inquiry 
-                  key={inquiry.id} {...inquiry}
-                  setInquiries={setInquiries}
-                  setProperty={setProperty}
-                /> //this sends the setter to the child component 
+                <div key={inquiry.id} className="inquiry-container mb-5">
+                  <Inquiry 
+                    className={Inquiry}
+                    key={inquiry.id} {...inquiry}
+                    setInquiries={setInquiries}
+                    setProperty={setProperty}
+                  />
+                </div>
+                //this sends the setter to the child component 
               ))}
               dataLength={inquiries.results.length}
               loader={<Asset spinner />}
@@ -93,9 +95,7 @@ function PropertyPage(props) {
           ) : (
             <span>No inquiry... yet</span>
           )}
-
-            {/*if currentUser is property owner*/}
-            {currentUser && currentUser.username === property.results[0]?.owner ? (
+            {/* {currentUser && currentUser.username === property.results[0]?.owner ? (
               <ImageCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
@@ -110,22 +110,12 @@ function PropertyPage(props) {
             {pictures.results.length ? (
               <InfiniteScroll
                 children={pictures.results.map((picture) => (
-                  // <Image 
-                  // key={picture.id} {...picture}
-                  // setPictures={setPictures}
-                  // setProperty={setProperty}
-                  // />
                   <img
                     key={picture.id}
                     className={appStyles.Image}
                     src={picture.pictures}
                     alt="property"  
                   />
-                  // <div>
-                  //     <h1>{property.title}</h1>
-                  //     <p>{property.description}</p>
-                  //     <ImageCreateForm images={images} />
-                  //   </div>
                 ))}
                 dataLength={pictures.results.length}
                 loader={<Asset spinner />}
@@ -136,15 +126,12 @@ function PropertyPage(props) {
               <span>No pictures yet, be the first to upload!</span>
             ) : (
               <span>No pictures... yet</span>
-            )}
-
-
-
+            )} */}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+      {/* </Col> */}
+      {/* <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
-      </Col>
+      </Col> */}
     </Row>
   );
 }

@@ -2,8 +2,34 @@
     display:flex;
     direction: row;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between; 
+    padding: 50px;
+    background-color: darkslategray;
+    border: unset;  
+    padding-bottom: 10px; 
+    /* width: 25%;
+    margin: 20px;
+    padding: unset;
+    float: left;
+    height: 560px; */
 }
+
+.PropertiesPageCard {
+    background-color: rgb(35, 35, 35);
+    width: 25%;
+    margin: 20px;
+    padding: unset;
+    float: left;
+    height: 590px;
+  }
+/* .PropertiesCard {
+    display: flex;
+    width: 25%;
+    margin: 20px;
+    padding: unset;
+    float: left;
+    height: 560px;
+  } */
 
 .AddProp{
     border-radius: 5px;
@@ -15,19 +41,19 @@
     font-weight: 600;
     gap: '10px';
     text-transform: capitalize;
-    /* text-transform: capitalize, '&:hover': {
-        opacity: 0.9,
-        background-color: aquamarine
-
-    };
-    flex: fullWidth? 1: unset;
-    width: fullWidth? 100% : fit-content; */
+    width: -moz-available;
 }
 
 .AddProp:hover{
-    background-color: aqua;
+    background-color: rgb(39, 45, 45);
     border: 1px solid white;
-    color: darkslategray;
+    color: white;
     transition: all 0.5s;
     text-decoration: none;
 }
+
+.center-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
