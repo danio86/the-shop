@@ -35,19 +35,20 @@ function PropertyEditForm() {
   // });
 
   const [propertyData, setPropertyData] = useState({
-    title: "test",
-    description: "test",
+    title: "-",
+    description: "-",
     image: "",
-    price: 10000.00, // Set an initial value or leave it empty as per your requirements
-    size: 100,
-    num_rooms: 3,
-    location: "Dublin",
+    price: 0.00, // Set an initial value or leave it empty as per your requirements
+    size: 0,
+    num_rooms: 0,
+    location: "-",
     status: "Available",
     property_type: "Loft",
     num_interests: 0
   });
 
-  const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
+//   const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
+  const { title, description, image, price, size, num_rooms, location, status, property_type } = propertyData;
 
   const history = useHistory();
   const imageInput = useRef(null);
@@ -100,7 +101,7 @@ function PropertyEditForm() {
     formData.append("num_rooms", num_rooms);
     formData.append("status", status);
     formData.append("property_type", property_type);
-    formData.append("num_interests", num_interests);
+    // formData.append("num_interests", num_interests);
     formData.append("location", location);
     // formData.append("image", imageInput.current.files[0]);
 
@@ -156,7 +157,7 @@ function PropertyEditForm() {
       ))}
 
 {/* // const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData; */}
-      <Form.Group>
+      {/* <Form.Group>
         <Form.Label>Interested person</Form.Label>
         <Form.Control
           as="textarea"
@@ -170,19 +171,25 @@ function PropertyEditForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      ))}
+      ))} */}
       
       
       
       <Form.Group>
         <Form.Label>Type</Form.Label>
         <Form.Control
-          as="textarea"
-          rows={6}
-          name="property_type"
+          as="select"
           value={property_type}
+          name="property_type"
+          displayEmpty
+          required
           onChange={handleChange}
-        />
+        >
+          <option value="Loft">Loft</option>
+          <option value="Flat">Flat</option>
+          <option value="Villa">Villa</option>
+
+        </Form.Control>
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -193,8 +200,9 @@ function PropertyEditForm() {
       
       
       <Form.Group>
-        <Form.Label>Status</Form.Label>
+        <Form.Label style={{ display: 'none' }}>Status</Form.Label>
         <Form.Control
+          style={{ display: 'none' }}
           as="textarea"
           rows={6}
           name="status"

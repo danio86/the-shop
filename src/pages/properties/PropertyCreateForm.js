@@ -43,13 +43,14 @@ function PropertyCreateForm() {
     price: 0.00, // Set an initial value or leave it empty as per your requirements
     size: 0.00,
     num_rooms: 0,
-    location: "",
+    location: "-",
     status: "Available",
     property_type: "Loft",
-    num_interests: 0,
+    // num_interests: 0,
   });
 
-  const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
+//   const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
+  const { title, description, image, price, size, num_rooms, location, status, property_type } = propertyData;
 
   const history = useHistory();
   const imageInput = useRef(null);
@@ -82,7 +83,7 @@ function PropertyCreateForm() {
     formData.append("num_rooms", num_rooms);
     formData.append("status", status);
     formData.append("property_type", property_type);
-    formData.append("num_interests", num_interests);
+    // formData.append("num_interests", num_interests);
     formData.append("location", location);
     formData.append("image", imageInput.current.files[0]);
 
@@ -134,7 +135,7 @@ function PropertyCreateForm() {
       ))}
 
 {/* // const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData; */}
-      <Form.Group>
+      {/* <Form.Group>
         <Form.Label>Interested person</Form.Label>
         <Form.Control
           as="textarea"
@@ -148,11 +149,55 @@ function PropertyCreateForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      ))}
+      ))} */}
       
       
-      
+
       <Form.Group>
+        {/* <Form.Label>Title</Form.Label> */}
+        <Form.Label>Type</Form.Label>
+        <Form.Control
+          as="select"
+          value={property_type}
+          name="property_type"
+          displayEmpty
+          required
+
+        //   as="textarea"
+        //   rows={6}
+        //   name="property_type"
+        //   value={property_type}
+        //   onChange={handleChange}
+
+        //   defaultValue={"apartment"}
+        //   inputProps = {{'aria-lable': 'Without lable'}}
+          onChange={handleChange}
+        >
+          <option value="Loft">Loft</option>
+          <option value="Flat">Flat</option>
+          <option value="Villa">Villa</option>
+          {/* <option value="Apartment">Apartment</option>
+          <option value="Farmhouse">Farmhouse</option>
+          <option value="Condos">Condos</option>
+          <option value="Townhouse">Townhouse</option>
+          <option value="Chalet">Chalet</option>
+          <option value="Studio">Studio</option> */}
+
+        </Form.Control>
+      </Form.Group>
+      {errors?.type?.map((message, idx) => (
+        /* title fragt nach dem errors key */
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+
+
+
+
+      
+      {/* <Form.Group>
         <Form.Label>Type</Form.Label>
         <Form.Control
           as="textarea"
@@ -166,13 +211,14 @@ function PropertyCreateForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      ))}
+      ))} */}
       
       
       
       <Form.Group>
-        <Form.Label>Status</Form.Label>
+        <Form.Label style={{ display: 'none' }}>Status</Form.Label>
         <Form.Control
+          style={{ display: 'none' }}
           as="textarea"
           rows={6}
           name="status"

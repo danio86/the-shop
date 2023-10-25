@@ -20,6 +20,8 @@ const Property = (props) => {
     inquiries_count,
     prospectivebuyer_count,
     prospectivebuyer_id,
+    // sales,
+    // sales_id,
     title,
     description,
     price,
@@ -49,6 +51,8 @@ const Property = (props) => {
   };
 
   const [interested, setInterested] = useState(prospectivebuyer_id);
+//   const [sold, setSold] = useState(sales);
+//   const [soldCount, setSoldCount] = useState(sales_id);
   const [count, setCount] = useState(prospectivebuyer_count);
 
   const handleIamInterested = async () => {
@@ -60,6 +64,16 @@ const Property = (props) => {
       console.log(err, 'no one is interested in this property');
     }
   };
+
+//   const handleSales = async () => {
+//     try {
+//       const { data } = await axiosRes.post("/sales/", { property: id });
+//       setSold(data.id);
+//       setSoldCount(count + 1);
+//     } catch (err) {
+//       console.log(err, 'it is still availible');
+//     }
+//   };
 
   const handleNotInterestedAnymore = async () => {
     try {
@@ -114,9 +128,10 @@ const Property = (props) => {
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={handleIamInterested}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+            <span onClick={handleNotInterestedAnymore}>
+              <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
+            
           ) : (
             <OverlayTrigger
               placement="top"
@@ -131,6 +146,22 @@ const Property = (props) => {
           </Link>
           {inquiries_count}
         </div>
+        {/* <div className={styles.PostBar}>
+            
+
+
+        {is_owner ? (
+            <span onClick={handleSales}>
+            still there
+          </span>
+          ) : sold ? (
+            <span >
+              soldalready
+            </span>
+          )  
+          }
+
+        </div> */}
       </Card.Body>
     </Card>
   )

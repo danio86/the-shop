@@ -3,25 +3,21 @@
     color: #242a3d;
     padding-left: 40px;
     margin-bottom: 16px;
-  }
-  
-  .SearchIcon {
+}
+
+.SearchBar {
+    margin: 0 auto 0 0;
+}
+
+.SearchIcon {
     position: absolute;
     font-size: 1.2rem;
     padding: 9px;
     padding-left: 15px;
-  }
-  
-  .SearchIcon:hover {
-    cursor: default;
-    color: #cfced3;
-  }
+    margin: 0 0 0 auto;
+}
 
-  .PropertyView {
-   
-    /* width: 25%;
-    margin: 20px;
-    padding: unset;
-    float: left;
-    height: 560px; */
-  }
+.SearchIcon:hover {
+    cursor: default;
+    color: white;
+}
