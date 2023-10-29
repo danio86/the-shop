@@ -54,26 +54,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
     - On small screens the header collapes to the logo and a dropdrown burger button.
     - The header tells the user the name of the company and clearly guides the user to all the points that interest them. 
      - Header Images
-        <!-- - <img src="static/images/SlackBook-Logo.png" alt="Logo">
-        <br>
-        - <img src="static/images/screenshot-full-header.png" alt="Header1">
-        <br>
-        - <img src="static/images/screenshot-header-dropdown.png" alt="Dropdown">
-        <br>
-        - <img src="static/images/screenshot-header-hamburger.png" alt="Hamburger">
-        <br>
-        - <img src="static/images/screenshot-log-out.png" alt="Header2"> -->
-
-
-<!-- - __The Footer__ 
-
-  - The footer section includes links to the relevant social media sites for Slackbook. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is the same on all web pages and fixed.
-  - The footer is valuable to the user as it encourages them to keep connected via social media
-  - The footer idea and basic code is taken form the **Code-Institute Love-Running-Project** but has been slightly modified.
-
-  - Footer
-  <img src="static/images/screenshot-footer.png" alt="Footer"> -->
+       
 
   - __The Sidebar__ 
 
@@ -81,7 +62,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
   - The sidebar is colapsible on click and can just be used by loggedin users.
 
 - Sidebar
-  <!-- <img src="static/images/screenshot-footer.png" alt="Footer"> --> -->
+  <!-- <img src="static/images/screenshot-footer.png" alt="Footer"> -->
 
 
 ### The Homepage
@@ -92,7 +73,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
     <!-- - Landing Page Images
 <!-- <img src="static/images/screenshot-landing-logged-in.png" alt="Landing">
 <br>
-<img src="static/images/screenshot-landing-logged-in2.png" alt="Landing2"> --> -->
+<img src="static/images/screenshot-landing-logged-in2.png" alt="Landing2"> -->
 
 
 ### The Property Page
@@ -205,37 +186,18 @@ The Shop is a platform where users can upload and sell real estate properties. O
       - All web pages have been tested for desktop and mobil devices.
 
 - HTML Validation
-<img src="static/images/screenshot-HTML-val.png" alt="HTML Validation">
+<img src="src/assets/screenshot-html-val.png" alt="HTML-Val">
 
 - CSS Validation
-<img src="static/images/screenshot-css-val.png" alt="CSS Validation">
+<img src="scr/static/images/screenshot-css-val.png" alt="CSS Validation">
 
-- JavaScipt Validation
-<img src="static/images/screenshot-js-validation.png" alt="JavaScipt Validation">
+- JSX Validation
+    - with ES-Linter
 
-- Python Validation
-<img src="static/images/screenshot-python-val.png" alt="Python Validation">
 
 - Lighthouse
-<img src="assets/images/screenshot-lighthouse.png" alt="Lighthouse Desktop">
+<!-- <img src="assets/images/screenshot-lighthouse.png" alt="Lighthouse Desktop"> -->
 
-- user story besed test cases (screenshots):
-
-  - As a visiting user, I can easily understand the main purpose of the website.
-      - Slogan and Slideshow
-      <img src="assets/images/screenshot-slogan-slideshow.png" alt="Slogan-Slideshow">
-
-  - As a visiting user, I can navigate the website without any problems.
-      - Navigation
-      <img src="assets/images/screenshot-userstory-test-navigation.png" alt="Navigation">
-
-  - As a visiting user, I will be able to learn about other users and contact them.
-      - Info about other user
-      <img src="assets/images/screenshot-userstory-test-user-contact.png" alt="Info about other user">
-
-  - As a visiting user, I can easily contact the company service.
-      - Company Service
-      <img src="assets/images/screenshot-contact.png" alt="Company Service">
 
 
 
@@ -245,8 +207,6 @@ The Shop is a platform where users can upload and sell real estate properties. O
  - But functions that have to be solved better in the future.
     - In the future, the user will log in with an e-mail address.
     - Other users will see whether you are online or not.nearby and use the link to further information about her/him.
-    - The user will receive a message if he or she has received a message from another user.
-
 
 
 ## Deployment
@@ -260,29 +220,28 @@ The project was deployed using Code institut's mock for Heroku
         The Heroku app was linked to the repository
         Deploy was clicked.
 
-The live link can be found [here](https://slackbook2.herokuapp.com/)
+The live link can be found [here](https://theShop.herokuapp.com/)
 
 
 ## Credits 
 
 ### Content
 
-- Instructions on how to structure full stack projects, how to work with databasis, how to use Django, Postgresql and Cloudinary, Summernote and Allauth are from [Code Institute - I think therefore I Blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/)
-[and](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/dc049b343a9b474f8d75822c5fda1582/a706dbb65b2d467a84e1bf67266851b1/)
+- Instructions on how to structure full stack projects, how to work with databasis, how to use Django, Postgresql and Cloudinary, Summernote and Allauth are from [Code Institute - Moments and drf](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/)
+[and](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DRF+2021_T1/courseware/f775d54df4da44d18309888b3fe884f7/bc5fbada70104d489aa0363a03d8bda8/)
 - All icons were taken from [Font Awesome](https://fontawesome.com/)
 - Font styles were taken from [Google Fonts](https://fonts.googleapis.com)
 - The code of the header dropdown menu is taken from Bootstrap. [Bootstrap](https://getbootstrap.com/docs/4.1/components/navbar/)
 - The all HTML structures are from Bootrap. [Bootstrap](https://getbootstrap.com/docs/4.1/layout/grid/)
-- Instructions on how to implement links into the footer was taken from [Code Institute - Love Running Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LR101+2021_T1/courseware/4a07c57382724cfda5834497317f24d5/e6d4cda2bc08458ba94d2092be9bad3a/)
-- Instructions on how to loop through in the template and count was taken from [Stack Overflow](https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template)
-- Instructions on how to extend the Django User Model were taken from [Youtube](https://www.youtube.com/watch?v=PtQiiknWUcI&t=9718s)
+- Instructions on how to buils a sidebar in react are from [Youtube](https://www.youtube.com/watch?v=5R9jFHlG6ik&t=11s)
+- The Basic Project idea is from [Youtube](https://www.youtube.com/watch?v=jx5hdo50a2M&t=3301s)
 
 - Color-Scheme
-  <img src="static/images/color-scheme.png" alt="Color Scheme">
+  <img src="src/assets/color-scheme.png" alt="Color Scheme">
 
 ### Media
 
-- The Images used on all pages, except the sport-category page and trainer photos on the specific-sport page are from this Open Source site [Pixabay](https://pixabay.com/de/)
+- The Images used on all pages are from this open Source site [Pixabay](https://pixabay.com/de/)
 - All Images are stored in the Cloudinary platform.
 - The Logo was made with [Canva](https://www.canva.com/create/logos/)
 
