@@ -49,10 +49,6 @@ const SignUpForm = () => {
           <h1 className={styles.Header}>sign up</h1>
 
           <Form onSubmit={handleSubmit}>
-          {/* <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group> */}
           <Form.Group controlId="username">
             <Form.Label className="d-none">Username</Form.Label>
             <Form.Control
@@ -127,7 +123,7 @@ const SignUpForm = () => {
         <Image
           className={`${appStyles.FillerImage}`}
           src={
-            "https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"
+            "https://res.cloudinary.com/ddigiimwd/image/upload/v1686727085/pixel-art-gb2f9ae164_1280_s1thi6.png"
           }
         />
       </Col>

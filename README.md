@@ -2,7 +2,7 @@
 
 The Shop is a platform where users can upload and sell real estate properties. Once a property is created, the owner can edit and delete it. Other users can view the properties and make inquiries. These inquiries can also be edited and deleted. Additionally, there is an 'Interested' button that users can click. This allows the property owner to see that their property is of interest to others and potentially initiate contact. The entire platform can also be filtered for interesting properties.
 
-The Project can be seen [here](https://theshop.herokuapp.com/)
+<!-- The Project can be seen [here](https://theshop.herokuapp.com/) -->
 
 
 ## User Stories
@@ -24,55 +24,37 @@ The Project can be seen [here](https://theshop.herokuapp.com/)
 
 - **The Proprties Page**
     - View most recent properties: As a user I can view all the most recent properties, ordered by most recently created first so that I am up to date with the newest content
-    As a user, I can search for properties with keywords, so that I can find the properties and user profiles I am most interested in.
-    View interesting properties: As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most
-    View posts of followed users: As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about
-    Infinite scroll: As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page" etc
+    - As a user, I can search for properties with keywords, so that I can find the properties and user profiles I am most interested in.
+    - View interesting properties: As a logged in user I can view the properties I am interested in so that I can find these properties better
+    - Infinite scroll: As a user I can keep scrolling through the properties on the site, that are loaded for me automatically so that I don't have to click on "next page" etc
 
-    The Post Page
-    Post page: As a user I can view the posts page so that I can read the comments about the post
-    Edit post: As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created
-    Create a comment: As a logged in user I can add comments to a post so that I can share my thoughts about the post
-    Comment date: As a user I can see how long ago a comment was made so that I know how old a comment is
-    View comments: As a user I can read comments on posts so that I can read what other users think about the posts
-    Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
-    Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+- **The Property Page**
+    - Property page: As a user I can view the properties page so that I can read the information about the property
+    - Edit property: As a property owner I can edit my property title and description so that I can make corrections or update my property after it was created
+    - Create a inquiry: As a logged in user I can add inquiries to a property so that I can show my interest
+    - Inquiry date: As a user I can see how long ago a inquiry was made so that I know how old a inquiry is
+    - View inquiries: As a property owner I can read inquiries on properties so that I can read what other users think about the property
+    - Delete inquiries: As the owner of an inquiry, I can delete my inquiry so that I am no longer recognized as interested
+    - Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
 
-    The Profile Page
-    Profile page: As a user I can view other users profiles so that I can see their posts and learn more about them
-    Most followed profiles: As a user I can see a list of the most followed profiles so that I can see which profiles are popular
-    User profile - user stats: As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them
-    Follow/Unfollow a user: As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
-    View all posts by a specific user: As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them
-    Edit profile: As a logged in user I can edit my profile so that I can change my profile picture and bio
-    Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
-
-
-- As a Site User I can view a list of channel so that I can select one to read the posts.
-- As a Site User I can choose between several topics so that I can see different channels refereed to this topic.
-- As a Site User I can register an account so that I can comment and join channels.
-- As a Site User / Admin I can view comments on an individual post so that I can read the conversation.
-- As a Site Admin/User I can create, read, update and delete posts so that I can manage my blog content.
-- As a Site User I can leave comments on a post so that I can be involved in the conversation.
-- As a Site User I can create, read, update and delete Channels so that I can get in contact with people of same interests.
-- As a Site User I can click on a Channel so that I can read the full content.
-- As a Site User I can create, update, delete private channels or chats so that I can communicate privately to a person or to a group.
-- As a Site User I can upload images so that I can support my statements with pictures and add a personal touch to my avatar
-- As a Site User I can search for content so that filter channels or topics
+- **The Profile Page**
+    - Profile page: As a user I can view other users profiles so that I can see their posts and learn more about them
+    - User profile: As a user I can view statistics about a specific user: bio, number of posts, so that I can learn more about them
+    - View all properties by a specific user: As a user I can view all the properties by a specific user so that I can catch up on their newest propertes
+    - Edit profile: As a logged in user I can edit my profile so that I can change my profile picture and bio
+    - Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
 
 
 ## Features 
 
 - __Header__
 
-    - The header contains the SlackBook logo which is a link to the home webpage. The header also contanisa seachbar and a dropdown menu button with the user image or a default avatar. 
-        -  The  dropdown button includes links to the user settings, the user, the user account, to all all channels and categories. If the user is logged in, it also containes the link to the logout page. If the user is not logged in, it contains the link to the log in page.
+    - The header contains the TheShop logo which is a link to the home webpage. The header also contanis the user image or a default avatar. The links to the SignIn SignOut and profilePages are also included here.
     - The header has a fixed position and can be seen on all  webpages at the top of the browser window. 
-    - On pages where a seachbar makes no scence, it is missing.
-    - On small screens the header collapes to the logo and a dropdrown button.
+    - On small screens the header collapes to the logo and a dropdrown burger button.
     - The header tells the user the name of the company and clearly guides the user to all the points that interest them. 
      - Header Images
-        - <img src="static/images/SlackBook-Logo.png" alt="Logo">
+        <!-- - <img src="static/images/SlackBook-Logo.png" alt="Logo">
         <br>
         - <img src="static/images/screenshot-full-header.png" alt="Header1">
         <br>
@@ -80,10 +62,10 @@ The Project can be seen [here](https://theshop.herokuapp.com/)
         <br>
         - <img src="static/images/screenshot-header-hamburger.png" alt="Hamburger">
         <br>
-        - <img src="static/images/screenshot-log-out.png" alt="Header2">
+        - <img src="static/images/screenshot-log-out.png" alt="Header2"> -->
 
 
-- __The Footer__ 
+<!-- - __The Footer__ 
 
   - The footer section includes links to the relevant social media sites for Slackbook. The links will open to a new tab to allow easy navigation for the user. 
   - The footer is the same on all web pages and fixed.
@@ -91,49 +73,36 @@ The Project can be seen [here](https://theshop.herokuapp.com/)
   - The footer idea and basic code is taken form the **Code-Institute Love-Running-Project** but has been slightly modified.
 
   - Footer
-  <img src="static/images/screenshot-footer.png" alt="Footer">
+  <img src="static/images/screenshot-footer.png" alt="Footer"> -->
+
+  - __The Sidebar__ 
+
+  - The sidebar section includes links to create update delete properties. Also links to filter properties and the property detail view. 
+  - The sidebar is colapsible on click and can just be used by loggedin users.
+
+- Sidebar
+  <!-- <img src="static/images/screenshot-footer.png" alt="Footer"> --> -->
 
 
 ### The Homepage
 
- - This section is divided into three parts.
+- The homepage is the starting page where you can see all properties in three columns. You can scroll down here and click on individual properties to get detailed information. Additionally, you can also view filtered search results here.
+- On smaller screens, you will see only one column instead of three.
 
-#### Categories and Channel
-
-- The channel categories are displayed on the left side. These can be created by the user. Clicking on it will display all the channels associated with the category the user clicked.
-- The channels are displayed below the categories. If no category is clicked, all categories and all channels are displayed. The channel titles of the respective channels are displayed. In addition to the channel titles, the channel hosts are displayed. These are also links that lead to the respective user accounts.
-
-#### User Channels
-
-- In the middle are the channels that the user has joined or which he/she has hosted. The last post of the user is displayed in the channels. Linked here are the channel host and the channel itself.
-- If the user is not registered, the request to register can be seen here.
-
-#### Slackbook User
-
-- All SlackBook users are displayed on the right side. These are sorted by the most recent login date and linked to the respective user account. In addition, the most recent post of the respective user is displayed here if they were not posted in a private channels.
-
-    - Landing Page Images
-<img src="static/images/screenshot-landing-logged-in.png" alt="Landing">
+    <!-- - Landing Page Images
+<!-- <img src="static/images/screenshot-landing-logged-in.png" alt="Landing">
 <br>
-<img src="static/images/screenshot-landing-logged-in2.png" alt="Landing2">
+<img src="static/images/screenshot-landing-logged-in2.png" alt="Landing2"> --> -->
 
 
-### The Channels/Channel Page
+### The Property Page
 
-- The channels are divided into two parts.
+- On the property page, you can access additional information about the property and view an enlarged image.
+- Here, you can express your interest and make purchase inquiries.
+- If you are the creator of the property, you can edit or delete it here.
 
-#### Channel-Content
-
-- On the right is the channel title and channel host. Next to it is how long the channel has existed.
-- Below is the content of the channel. Also the posts of the user and images (if posted) are displayed here. 
-- Also the posts user and when the comment was posted can be seen here.
-- The respective user is linked here.
-
-#### Channel-Members
-On the right side you can see all members of the channel, who are also linked here.
-
-   - Channel Image
-   <img src="static/images/screenshot-channel.png" alt="Channel">
+   <!-- - Channel Image
+   <img src="static/images/screenshot-channel.png" alt="Channel"> -->
 
 
 ### Categories and Channel Page
