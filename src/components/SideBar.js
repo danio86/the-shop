@@ -60,7 +60,7 @@ const SideBar = () => {
               return null;
             }
 
-            if (item.path === '/profiles' && !currentUser) {
+            if (item.path === `/profiles/${currentUser?.profile_id}` && !currentUser) {
                 // Skip rendering the 'Add Property' link if the user is logged out
                 return null;
               }

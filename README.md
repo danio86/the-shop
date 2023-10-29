@@ -54,6 +54,8 @@ The Shop is a platform where users can upload and sell real estate properties. O
     - On small screens the header collapes to the logo and a dropdrown burger button.
     - The header tells the user the name of the company and clearly guides the user to all the points that interest them. 
      - Header Images
+          <img src="src/assets/screenshot-header.png" alt="Header">
+
        
 
   - __The Sidebar__ 
@@ -62,7 +64,8 @@ The Shop is a platform where users can upload and sell real estate properties. O
   - The sidebar is colapsible on click and can just be used by loggedin users.
 
 - Sidebar
-  <!-- <img src="static/images/screenshot-footer.png" alt="Footer"> -->
+  <img src="src/assets/screenshot-sidebar.png" alt="Sidebar">
+  <img src="src/images/screenshot-sidebar-open.png" alt="sidebar-open">
 
 
 ### The Homepage
@@ -70,10 +73,9 @@ The Shop is a platform where users can upload and sell real estate properties. O
 - The homepage is the starting page where you can see all properties in three columns. You can scroll down here and click on individual properties to get detailed information. Additionally, you can also view filtered search results here.
 - On smaller screens, you will see only one column instead of three.
 
-    <!-- - Landing Page Images
-<!-- <img src="static/images/screenshot-landing-logged-in.png" alt="Landing">
-<br>
-<img src="static/images/screenshot-landing-logged-in2.png" alt="Landing2"> -->
+    - Landing Page Images
+<img src="src/assets/screenshot-landingpage.png" alt="Landing">
+
 
 
 ### The Property Page
@@ -82,8 +84,8 @@ The Shop is a platform where users can upload and sell real estate properties. O
 - Here, you can express your interest and make purchase inquiries.
 - If you are the creator of the property, you can edit or delete it here.
 
-   <!-- - Channel Image
-   <img src="static/images/screenshot-channel.png" alt="Channel"> -->
+   - Property page
+   <img src="src/assets/screenshot-propertypage.png" alt="Property">
 
 
 
@@ -95,7 +97,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
 - If the user is the owner of this profile, the user can edit the profile here.
 
   - Profile page
-  <!-- <img src="static/images/screenshot-user.png" alt="Active-User"> -->
+  <img src="src/assets/screenshot-profilepage.png" alt="Profile">
 
 
 ### User-Settings Page
@@ -103,7 +105,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
 - Here the user can change some of his personal data. He can change the username, password and his avatar. 
 
     - User Settings Image
-  <!-- <img src="static/images/screenshot-settings.png" alt="User-Settings"> -->
+  <img src="src/assets/screenshot-edit-form.png" alt="User-Settings">
 
 
 ## Create - Update - property
@@ -112,16 +114,13 @@ The Shop is a platform where users can upload and sell real estate properties. O
 ### Update-property Page
 
 - If the user has created a property, they can then update it. By clicking 'edit' on the property, they can change the title and all the other attributes. Additionally, they can change the property status from available to sold and vice versa. 
-    
-    - Edit property page
-    <!-- <img src="static/images/screenshot-create-channel.png" alt="Create-Channel"> -->
 
 
 ### 404 Page
 
 - If the user clicks on a link that goes nowhere, they will be directed here.
      - 404 page
-    <!-- <img src="static/images/screenshot-create-channel.png" alt="Create-Channel"> -->
+    <img src="src/assets/screenshot-404.png" alt="404">
 
 
 
@@ -136,7 +135,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
   - The User can log in with username and password.
 
   - Login
-  <!-- <img src="static/images/screenshot-logIn.png" alt="Log-In"> -->
+  <img src="src/assets/screenshot-signin.png" alt="Log-In">
 
 
 ### The Sign Up Pages
@@ -145,7 +144,7 @@ The Shop is a platform where users can upload and sell real estate properties. O
   
 
   - Sign Up
-  <!-- <img src="static/images/screenshot-signUp.png" alt="Sign Up"> -->
+  <img src="src/assets/screenshot-signup.png" alt="Sign Up">
 
 
 ## Features Left to Implement
