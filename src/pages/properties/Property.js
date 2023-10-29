@@ -52,8 +52,7 @@ const Property = (props) => {
     }
   };
 
-//   const [sold, setSold] = useState(sales_id);
-//   const [soldCount, setSoldCount] = useState(sales_count);
+
 
 
   const [interested, setInterested] = useState(prospectivebuyer_id);
@@ -69,40 +68,6 @@ const Property = (props) => {
     }
   };
 
-//   const storeIcon = <i className={`fas fa-store ${styles.Heart}`} />
-
-
-//   const handleSales = async () => {
-//     try {
-//       const { data } = await axiosRes.post("/sales/", { property: id });
-//       setSold(data.id);
-//       setSoldCount(soldCount + 1);
-//       <span style={{ color: "red" }}>storeIcon</span>
-
-//     //   setSoldCount("Sold"); // Change salesCount text to "Sold"
-//     } catch (err) {
-//       console.log(err, 'it is still availible');
-//     }
-//   };
-
-  
-
-    // Maintain a state to track the color of the store icon
-    // const [storeIconColor, setStoreIconColor] = useState("white");
-
-    // const handleSales = async () => {
-    //   if (is_owner) {
-    //     try {
-    //       const { data } = await axiosRes.post("/sales/", { property: id });
-    //       setSold(data.id);
-    //       setSoldCount("Sold");
-    //       setSoldCount(soldCount + 1);
-    //       setStoreIconColor("red"); // Change the color of the store icon to red
-    //     } catch (err) {
-    //       console.log(err, 'it is still available');
-    //     }
-    //   }
-    // };
 
 
   
@@ -157,17 +122,17 @@ const Property = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              overlay={<Tooltip>You can't be interested in your own property!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="fa-solid fa-bell"></i>
             </OverlayTrigger>
           ) : interested ? (
             <span onClick={handleNotInterestedAnymore}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+              <i className={`fa-solid fa-bell ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleIamInterested}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+              <i className={`fa-solid fa-bell ${styles.Heart}`} />
             </span>
             
           ) : (
@@ -175,7 +140,7 @@ const Property = (props) => {
               placement="top"
               overlay={<Tooltip>Log in to like prperties!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="fa-solid fa-bell" />
             </OverlayTrigger>
           )}
           {count}

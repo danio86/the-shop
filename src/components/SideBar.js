@@ -11,6 +11,7 @@ const SideBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+
   const items = [
     {
       path: '/',
@@ -24,12 +25,7 @@ const SideBar = () => {
       icon: <i className="far fa-plus-square"></i>,
       text: 'Add Property',
     },
-    // {
-    //   path: '/feed',
-    //   name: 'feed',
-    //   icon: <i className="fas fa-stream"></i>,
-    //   text: 'Feed',
-    // },
+
     {
       path: '/prospectivebuyers',
       name: 'prospectiveBuyers',
@@ -37,7 +33,7 @@ const SideBar = () => {
       text: 'Popular',
     },
     {
-      path: '/profiles',
+      path: `/profiles/${currentUser?.profile_id}`,
       name: 'profile',
       icon: <i className="fas fa-user-circle"></i>,
       text: 'Profile',
@@ -52,9 +48,7 @@ const SideBar = () => {
       >
         <div className={styles.TopSection}>
           {items.map((item, index) => {
-            // if (item.path === '/feed' && !currentUser) {
-            //   return null;
-            // }
+           
 
             if (item.path === '/prospectivebuyers' && !currentUser) {
               // Skip rendering the 'Interesting Properties' link if the user is logged out
@@ -111,92 +105,3 @@ const SideBar = () => {
 };
 
 export default SideBar;
-
-
-
-// import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import styles from '../styles/SideBar.module.css';
-// import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
-
-// const SideBar = () => {
-//   const [expanded, setExpanded] = useState(false);
-
-//   const toggle = () => setExpanded(!expanded);
-
-//   const currentUser = useCurrentUser();
-//   const setCurrentUser = useSetCurrentUser();
-
-//   const items = [
-//     {
-//       path: '/agents',
-//       name: 'agents',
-//       icon: <i className="fas fa-user-friends"></i>,
-//       text: 'Agents',
-//     },
-//     {
-//       path: '/properties',
-//       name: 'properties',
-//       icon: <i className="fas fa-house"></i>,
-//       text: 'Properties',
-//     },
-//     {
-//       path: '/reviews',
-//       name: 'reviews',
-//       icon: <i className="far fa-star"></i>,
-//       text: 'Reviews',
-//     },
-//     {
-//       path: '/messages',
-//       name: 'messages',
-//       icon: <i className="fas fa-comments"></i>,
-//       text: 'Messages',
-//     },
-//   ];
-
-//   return (
-//     <div className={styles.Container}>
-//       <div
-//         className={styles.SideBar}
-//         style={{ width: expanded ? '200px' : '100%' }}
-//       >
-//         <div className={styles.TopSection}>
-//           {items.map((item, index) => (
-//             <NavLink
-//               to={item.path}
-//               key={index}
-//               className={styles.Link}
-//               activeClassName={styles.Active}
-//             >
-//               <div className={styles.Icon}>
-//                 {item.icon}
-//                 <h4
-//                     className={styles.Icon}
-//                   style={{
-//                     display: expanded ? 'inline' : 'none',
-//                     marginTop: '8px',
-//                     position: 'absolute',
-//                     padding: '0 9px',
-//                     fontFamily: 'Roboto Mono, sans-serif',
-//                 }}
-                  
-//                 >
-//                   {item.text}
-//                 </h4>
-//               </div>
-//             </NavLink>
-//           ))}
-//           <div className={styles.Hamburger} onClick={toggle}>
-//             {expanded ? (
-//               <i className="fas fa-arrow-circle-left"></i>
-//             ) : (
-//               <i className="fas fa-arrow-circle-right"></i>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SideBar;

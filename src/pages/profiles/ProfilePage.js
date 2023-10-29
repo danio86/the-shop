@@ -141,15 +141,12 @@ function ProfilePage() {
           message={`No results found, ${profile?.owner} hasn't offered properties yet.`}
         />
       )}
-
-
     </>
   );
 
   return (
     <Row>
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+      <Col className="py-2 p-0 p-lg-2 mx-auto" lg={8}>
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -160,9 +157,6 @@ function ProfilePage() {
             <Asset spinner />
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );

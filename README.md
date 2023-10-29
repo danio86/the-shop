@@ -105,144 +105,73 @@ The Shop is a platform where users can upload and sell real estate properties. O
    <img src="static/images/screenshot-channel.png" alt="Channel"> -->
 
 
-### Categories and Channel Page
-
-- This page shows the same content like in the landing page on the left side. But here it is not filtert. 
-- On smaller screens this part ist not shown on the landin page anymore. Instead this page is linked in the header dropdown.
-- The channel categories are displayed. These can be created by the user. Clicking on it will display all the channels associated with the category the user clicked.
-- The channels are displayed below the categories. If no category is clicked, all categories and all channels are displayed. The channel titles of the respective channels are displayed. In addition to the channel titles, the channel hosts are displayed. These are also links that lead to the respective user accounts.
-
-    - Channel Image
-    <img src="static/images/screenshot-categories-channels.png" alt="Channel">
 
 
+### Profile Page
 
-### SlackBook User Page
+- This page shows all properties the user has created.
+- Here other user can show that they are interested in a property of the this user.
+- If the user is the owner of this profile, the user can edit the profile here.
 
-- This page shows the same content like in the landing page on the right side.
-- On smaller screens this part ist not shown on the landin page anymore. Instead this page is linked in the header dropdown.
-- All SlackBook users are displayed. These are sorted by the most recent login date and linked to the respective user account. In addition, the most recent post of the respective user is displayed here if they were not posted in a private channels.
-
-  - Active User Image
-  <img src="static/images/screenshot-user.png" alt="Active-User">
+  - Profile page
+  <!-- <img src="static/images/screenshot-user.png" alt="Active-User"> -->
 
 
 ### User-Settings Page
 
-- Here the user can change some of his personal data. He can change the username, the name and the email address and his avatar. You can log in with your email address.
+- Here the user can change some of his personal data. He can change the username, password and his avatar. 
 
     - User Settings Image
-  <img src="static/images/screenshot-settings.png" alt="User-Settings">
+  <!-- <img src="static/images/screenshot-settings.png" alt="User-Settings"> -->
 
 
-## Create - Update - Delete - Channel
-
-- The create channel, the edit channel and the add member page are rendered by different functions in views.py, but are displayed in the same template. The template looks different depending on which page is being rendered.
-
-### Create-Channel Page
-
-- The user can host their own channel on the Create Channel page. The user has to enter the category (the main topic) and the title of the channel. He also has yet to announce whether it is a private or public channel.
-- If it is a private channel, he must then edit the channel and add users manually.
-- If the channel is public, every user who posts here will automatically be added as a user.
-- Only registered users can create a channel.
+## Create - Update - property
 
 
-### Update-Channel Page
+### Update-property Page
 
-- If the user has hosted a channel, he can then update it. If he clicks "edit" in the channel, he can change the title and category on the page that is being viewed. Also, he can change the channel status from public to private and vice versa. If the channel is private, you'll see a link to "add members" here.
-
+- If the user has created a property, they can then update it. By clicking 'edit' on the property, they can change the title and all the other attributes. Additionally, they can change the property status from available to sold and vice versa. 
     
-
-### Add-Members Page
-
-- Here you can select individual users and add them to the channel.
-
-    - Create-Channel Image
-    <img src="static/images/screenshot-create-channel.png" alt="Create-Channel">
-
-    - Edit-Channel Image
-    <img src="static/images/screenshot-edit-channel.png" alt="Edit-Channel">
-
-
-
-### Delete Object Page
-
-- The Delete page always looks the same. Posts or channels can be deleted here. To do this, the user first clicks on delete and can then confirm here that the selected object should actually be deleted.
-- Alternatively, he can click back and will then be taken back to the previous page.
-
-    - Delete Image
-    <img src="static/images/screenshot-delete.png" alt="Create-Channel">
-
-### Account Page
-
-- Different content is displayed on the user account, depending on whether the account owner or a foreign user visits the account.
-    - At the very top is the account owner and their user picture, if they have one. Below is a chat function. When a foreign user clicks on it, a private chat is started between the foreign user and the account owner.
-    - If this chat already exists, it will be linked here and can be continued.
-    - If the account owner visits their own account, all private chats are linked in a drop-down menu instead.
-- Below are visible to all, the account owner's hosted channels including the latest posts are displayed. It also shows the channels that the account owner has joined. In addition, the age of the posts and post creators is displayed and linked.
-
-    - User-Account Image
-    <img src="static/images/screenshot-user-account.png" alt="User Account">
-
-
-### Chat Page
-- The user gets here when he clicks on "send message" in another account or on the message icon in his own account. Then all the chats that the user either hosted, has, or has been added to will be displayed.
-- This shows how long the connection to the other user has existed and the previous chat history.
-- A new post can be written and sent underneath.
-
-  - Chat
-  <img src="static/images/screenshot-chat.png" alt="Chat">
+    - Edit property page
+    <!-- <img src="static/images/screenshot-create-channel.png" alt="Create-Channel"> -->
 
 
 ### 404 Page
 
 - If the user clicks on a link that goes nowhere, they will be directed here.
-- An apology and two links will appear. One leads to the previous page, the other leads to the homepage.
+     - 404 page
+    <!-- <img src="static/images/screenshot-create-channel.png" alt="Create-Channel"> -->
 
 
-## Login - Sign Up - Log Out - Page
 
-- All three pages have been taken over and modified by the Django framework "Allauth".
-    - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/)
+## Login - Sign Up - Page
+
+- All three pages have been taken over and modified by Ci Moments Project.
 
 
 ### The Login Page
 
   - This page will allow the user to log in to his or her account. If the user has not yet registered, he can do so here. No user can log in without having registered. There is a link to the signup page.
-  - The User can log in with email adress and password.
+  - The User can log in with username and password.
 
   - Login
-  <img src="static/images/screenshot-logIn.png" alt="Log-In">
+  <!-- <img src="static/images/screenshot-logIn.png" alt="Log-In"> -->
 
 
 ### The Sign Up Pages
 
-  - In der SignUp Seite muss der Username, und das Passwort angegeben werden. Dieses muss im Nachhinein bestätigt werden. Zusätzlich kann die Emailadresse angegeben werden.
+  - In the SignUp page, the username and password must be provided. The password must be confirmed afterward. 
   
 
   - Sign Up
-  <img src="static/images/screenshot-signUp.png" alt="Sign Up">
-
-
-### The Log Out
-
-  - Here the user can either log out or be directed back to the homepage with a link.
-
-  - Log Out
-  <img src="static/images/screenshot-log-out.png" alt="Log-Out">
-
-  - Thank You
-  <img src="assets/images/screenshot-thank-you.png" alt="Thank You">
-
-
+  <!-- <img src="static/images/screenshot-signUp.png" alt="Sign Up"> -->
 
 
 ## Features Left to Implement
 
   - Planned features: 
-    - In the future, the user will log in with an e-mail address.
-    - Other users will see whether you are online or not.nearby and use the link to further information about her/him.
-    - The user will receive a message if he or she has received a message from another user.
+    - In the future, the user will be able to add additional images to their property.
+    - TheShop administrator will have a dashboard with statistics on sales, preferred locations, and other data.
 
 
 
@@ -252,18 +181,13 @@ The Shop is a platform where users can upload and sell real estate properties. O
     - I have tested that the website works in different browsers (Chrome and Firefox).
     - I confirm that the website works and looks good on all standard screen sizes. This was tested with the devtools divice toolbar.
     - I confirm that the all forms are working.
-    - I confirm that the the user can create, edit and delete channels and posts.
-    - Passed the code through the Code institute - PEP8 linter and confirmed that there are no problems
+    - I confirm that the the user can create, edit and delete properties and inquiries.
 
-   
- Tested in the Code institute Heroku terminal and in my local terminal.
-    CI Python Linter 
+
     
 
 ### Validator Testing
 
-  - CI Python PEP8 Linter 
-     - No errors were detected when passing through the CI Python PEP8 Linter.
 
   - HTML
       - No errors were returned when passing through the official W3C validator.
