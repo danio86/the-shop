@@ -20,11 +20,12 @@ const Property = (props) => {
     inquiries_count,
     prospectivebuyer_count,
     prospectivebuyer_id,
-    // sales,
+    // sales_count,
     // sales_id,
     title,
     description,
     price,
+    status,
     location,
     size,
     image,
@@ -32,6 +33,7 @@ const Property = (props) => {
     updated_at,
     propertyPage,
   } = props;
+
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -50,9 +52,11 @@ const Property = (props) => {
     }
   };
 
+//   const [sold, setSold] = useState(sales_id);
+//   const [soldCount, setSoldCount] = useState(sales_count);
+
+
   const [interested, setInterested] = useState(prospectivebuyer_id);
-//   const [sold, setSold] = useState(sales);
-//   const [soldCount, setSoldCount] = useState(sales_id);
   const [count, setCount] = useState(prospectivebuyer_count);
 
   const handleIamInterested = async () => {
@@ -65,15 +69,43 @@ const Property = (props) => {
     }
   };
 
+//   const storeIcon = <i className={`fas fa-store ${styles.Heart}`} />
+
+
 //   const handleSales = async () => {
 //     try {
 //       const { data } = await axiosRes.post("/sales/", { property: id });
 //       setSold(data.id);
-//       setSoldCount(count + 1);
+//       setSoldCount(soldCount + 1);
+//       <span style={{ color: "red" }}>storeIcon</span>
+
+//     //   setSoldCount("Sold"); // Change salesCount text to "Sold"
 //     } catch (err) {
 //       console.log(err, 'it is still availible');
 //     }
 //   };
+
+  
+
+    // Maintain a state to track the color of the store icon
+    // const [storeIconColor, setStoreIconColor] = useState("white");
+
+    // const handleSales = async () => {
+    //   if (is_owner) {
+    //     try {
+    //       const { data } = await axiosRes.post("/sales/", { property: id });
+    //       setSold(data.id);
+    //       setSoldCount("Sold");
+    //       setSoldCount(soldCount + 1);
+    //       setStoreIconColor("red"); // Change the color of the store icon to red
+    //     } catch (err) {
+    //       console.log(err, 'it is still available');
+    //     }
+    //   }
+    // };
+
+
+  
 
   const handleNotInterestedAnymore = async () => {
     try {
@@ -111,6 +143,12 @@ const Property = (props) => {
         {size && <Card.Text>{size} m²</Card.Text>}
         {location && <Card.Text>{location}</Card.Text>}
         {price && <Card.Text>{price} €</Card.Text>}
+        {status && (
+          <Card.Text style={{ color: status === "Sold" ? "red" : "green" }}>
+            {status}
+          </Card.Text>
+        )}
+        
         <Link to={`/pictures/${id}`}>
           More Images
           <Card.Img style={{ color: "white" }} src={pictures} />
@@ -128,7 +166,7 @@ const Property = (props) => {
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={handleNotInterestedAnymore}>
+            <span onClick={handleIamInterested}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
             
@@ -146,22 +184,6 @@ const Property = (props) => {
           </Link>
           {inquiries_count}
         </div>
-        {/* <div className={styles.PostBar}>
-            
-
-
-        {is_owner ? (
-            <span onClick={handleSales}>
-            still there
-          </span>
-          ) : sold ? (
-            <span >
-              soldalready
-            </span>
-          )  
-          }
-
-        </div> */}
       </Card.Body>
     </Card>
   )

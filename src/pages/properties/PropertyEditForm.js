@@ -200,15 +200,19 @@ function PropertyEditForm() {
       
       
       <Form.Group>
-        <Form.Label style={{ display: 'none' }}>Status</Form.Label>
+        <Form.Label>Status</Form.Label>
         <Form.Control
-          style={{ display: 'none' }}
-          as="textarea"
-          rows={6}
-          name="status"
+          as="select"
           value={status}
+          name="status"
+          displayEmpty
+          required
           onChange={handleChange}
-        />
+        >
+          <option value="Available">Available</option>
+          <option value="Sold">Sold</option>
+
+        </Form.Control>
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
