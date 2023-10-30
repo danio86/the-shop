@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import styles from "../../styles/Post.module.css";
 import styles from "../../styles/Properties.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";

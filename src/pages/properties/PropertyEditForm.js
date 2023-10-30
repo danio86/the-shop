@@ -12,27 +12,16 @@ import { useHistory, useParams } from "react-router";
 
 
 import Alert from "react-bootstrap/Alert";
-// import Upload from "../../assets/upload.png";
 
 import styles from "../../styles/PropertyCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-// import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 
 function PropertyEditForm() {
   const [errors, setErrors] = useState({});
 
-  // const [propertyData, setPropertyData] = useState({
-  //   title: "",
-  //   description: "",
-  //   image: "",
-  //   price:"",
-  //   size:"",
-  //   num_rooms:"",
-  //   location:"",
-
-  // });
+ 
 
   const [propertyData, setPropertyData] = useState({
     title: "-",
@@ -47,7 +36,6 @@ function PropertyEditForm() {
     num_interests: 0
   });
 
-//   const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
   const { title, description, image, price, size, num_rooms, location, status, property_type } = propertyData;
 
   const history = useHistory();
@@ -101,9 +89,7 @@ function PropertyEditForm() {
     formData.append("num_rooms", num_rooms);
     formData.append("status", status);
     formData.append("property_type", property_type);
-    // formData.append("num_interests", num_interests);
     formData.append("location", location);
-    // formData.append("image", imageInput.current.files[0]);
 
     if (imageInput?.current?.files[0]) {
         formData.append("image", imageInput.current.files[0]);
@@ -156,22 +142,7 @@ function PropertyEditForm() {
         </Alert>
       ))}
 
-{/* // const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData; */}
-      {/* <Form.Group>
-        <Form.Label>Interested person</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="num_interests"
-          value={num_interests}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))} */}
+
       
       
       
@@ -272,21 +243,7 @@ function PropertyEditForm() {
         ))}
 
 
-    {/* <Form.Group>
-      <Form.Label>Price</Form.Label>
-      <Form.Control
-        as="textarea"
-        rows={6}
-        name="price"
-        value={price}
-        onChange={handleChange}
-    />
-    </Form.Group>
-    {errors?.content?.map((message, idx) => (
-      <Alert variant="warning" key={idx}>
-        {message}
-      </Alert>
-    ))} */}
+    
 
     <Form.Group>
       <Form.Label>Price</Form.Label>
@@ -337,19 +294,7 @@ function PropertyEditForm() {
                       Change the image
                     </Form.Label>
                   </div>
-                {/* </>
-              ) : (
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <Asset
-                    width={20}
-                    src={Upload}
-                    message="Click or tap to upload an image"
-                  />
-                </Form.Label>
-              )} */}
+                
 
               <Form.File
                 id="image-upload"

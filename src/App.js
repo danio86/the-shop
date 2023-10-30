@@ -31,24 +31,8 @@ function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
-  // const [currentUser, setCurrentUser] = useState(null);
-
-  // const handleMount = async () => {
-  //   try {
-  //     const { data } = await axios.get("dj-rest-auth/user/");
-  //     setCurrentUser(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   handleMount();
-  // }, []);
-
+ 
   return (
-    // <CurrentUserContext.Provider value={currentUser}>
-    //   <SetCurrentUserContext.Provider value={setCurrentUser}>
     <div className={styles.App}>
     <NavBar />
     <SideBar />
@@ -62,16 +46,6 @@ function App() {
           )}
         />
         
-        {/* <Route
-          exact
-          path="/feed"
-          render={() => (
-            <PropertiesPage
-              message="No results found. Adjust the search keyword or follow a user."
-              filter={`owner__followed__owner__profile=${profile_id}&`}
-            />
-          )}
-        /> */}
         <Route
           exact
           path="/prospectivebuyers"
@@ -110,8 +84,6 @@ function App() {
       </Switch>
     </Container>
   </div>
-    //   </SetCurrentUserContext.Provider>
-    // </CurrentUserContext.Provider>
   );
 }
 

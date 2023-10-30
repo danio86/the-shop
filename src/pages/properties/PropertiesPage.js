@@ -25,7 +25,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 function PropertiesPage({ message, filter = "" }) {
   
   const [properties, setProperties] = useState({ results: [] });
-  // const [property, setProperty] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
@@ -54,8 +53,7 @@ function PropertiesPage({ message, filter = "" }) {
   }, [filter, query, pathname, currentUser]);
   return (
     <Row className={`h-100 ${styles.PropertiesCard}`}>
-      {/* <Col className="py-2 p-0 p-lg-2" lg={8}> */}
-        {/* <PopularProfiles mobile /> */}
+ 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -75,7 +73,6 @@ function PropertiesPage({ message, filter = "" }) {
             {properties.results.length ? (
               <InfiniteScroll
               
-              // className={styles.PropertiesCard}
               children={properties.results.map((property) => (
                 <Property key={property.id} {...property} setProperties={setProperties} className={styles.PropertiesPageCard} />
               ))}
@@ -96,10 +93,7 @@ function PropertiesPage({ message, filter = "" }) {
             <Asset spinner />
           </Container>
         )}
-      {/* </Col> */}
-      {/* <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-      <PopularProfiles />
-      </Col> */}
+
     </Row>
   );
 }

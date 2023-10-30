@@ -19,7 +19,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 function PropertyPage(props) {
     const { id } = useParams();
     const [property, setProperty] = useState({ results: [] });
-    // const { images } = props;
 
     const currentUser = useCurrentUser();
     const profile_image = currentUser?.profile_image;

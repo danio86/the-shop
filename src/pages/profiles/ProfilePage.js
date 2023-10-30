@@ -78,43 +78,10 @@ function ProfilePage() {
               <div>{profile?.properties_count}</div>
               <div>properties</div>
             </Col>
-            {/* <Col xs={3} className="my-2">
-              <div>{profile?.prospectivebuyers__owner__profile}</div>
-              <div>I am interested</div>
-            </Col> */}
-            {/* <Col xs={3} className="my-2">
-              <div>{profile?.following_count}</div>
-              <div>following</div>
-            </Col> */}
-
-          {/* </Row>
-          <h3 className="m-2">{profile?.prospectivebuyers__owner__profile}</h3>
-          <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
-              <div>{profile?.properties_count}</div>
-              <div>I am interested</div>
-            </Col> */}
+          
           </Row>
         </Col>
-        {/* <Col lg={3} className="text-lg-right">
-          {currentUser &&
-            !is_owner &&
-            (profile?.following_id ? (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => {}}
-              >
-                unfollow
-              </Button>
-            ) : (
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {}}
-              >
-                follow
-              </Button>
-            ))}
-        </Col> */}
+       
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
     </>

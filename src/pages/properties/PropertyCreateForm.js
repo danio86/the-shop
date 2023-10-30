@@ -25,16 +25,7 @@ function PropertyCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
-  // const [propertyData, setPropertyData] = useState({
-  //   title: "",
-  //   description: "",
-  //   image: "",
-  //   price:"",
-  //   size:"",
-  //   num_rooms:"",
-  //   location:"",
 
-  // });
 
   const [propertyData, setPropertyData] = useState({
     title: "Title",
@@ -49,7 +40,6 @@ function PropertyCreateForm() {
     // num_interests: 0,
   });
 
-//   const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData;
   const { title, description, image, price, size, num_rooms, location, status, property_type } = propertyData;
 
   const history = useHistory();
@@ -134,27 +124,11 @@ function PropertyCreateForm() {
         </Alert>
       ))}
 
-{/* // const { title, description, image, price, size, num_rooms, location, status, property_type, num_interests } = propertyData; */}
-      {/* <Form.Group>
-        <Form.Label>Interested person</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="num_interests"
-          value={num_interests}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))} */}
+
       
       
 
       <Form.Group>
-        {/* <Form.Label>Title</Form.Label> */}
         <Form.Label>Type</Form.Label>
         <Form.Control
           as="select"
@@ -163,25 +137,13 @@ function PropertyCreateForm() {
           displayEmpty
           required
 
-        //   as="textarea"
-        //   rows={6}
-        //   name="property_type"
-        //   value={property_type}
-        //   onChange={handleChange}
-
-        //   defaultValue={"apartment"}
-        //   inputProps = {{'aria-lable': 'Without lable'}}
+        
           onChange={handleChange}
         >
           <option value="Loft">Loft</option>
           <option value="Flat">Flat</option>
           <option value="Villa">Villa</option>
-          {/* <option value="Apartment">Apartment</option>
-          <option value="Farmhouse">Farmhouse</option>
-          <option value="Condos">Condos</option>
-          <option value="Townhouse">Townhouse</option>
-          <option value="Chalet">Chalet</option>
-          <option value="Studio">Studio</option> */}
+         
 
         </Form.Control>
       </Form.Group>
@@ -197,26 +159,11 @@ function PropertyCreateForm() {
 
 
       
-      {/* <Form.Group>
-        <Form.Label>Type</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="property_type"
-          value={property_type}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))} */}
+     
       
       
       
       <Form.Group>
-        {/* <Form.Label style={{ display: 'none' }}>Status</Form.Label> */}
         <Form.Label>Status</Form.Label>
         <Form.Control
           as="select"
@@ -311,21 +258,7 @@ function PropertyCreateForm() {
         ))}
 
 
-    {/* <Form.Group>
-      <Form.Label>Price</Form.Label>
-      <Form.Control
-        as="textarea"
-        rows={6}
-        name="price"
-        value={price}
-        onChange={handleChange}
-    />
-    </Form.Group>
-    {errors?.content?.map((message, idx) => (
-      <Alert variant="warning" key={idx}>
-        {message}
-      </Alert>
-    ))} */}
+   
 
     <Form.Group>
       <Form.Label>Price</Form.Label>

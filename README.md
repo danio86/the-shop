@@ -64,8 +64,9 @@ The Shop is a platform where users can upload and sell real estate properties. O
   - The sidebar is colapsible on click and can just be used by loggedin users.
 
 - Sidebar
+
   <img src="src/assets/screenshot-sidebar.png" alt="Sidebar">
-  <img src="src/images/screenshot-sidebar-open.png" alt="sidebar-open">
+  <img src="src/assets/screenshot-sidebar-open.png" alt="sidebar-open">
 
 
 ### The Homepage
