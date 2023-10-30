@@ -18,7 +18,7 @@ const SideBar = () => {
       name: 'home',
       icon: <i className="fas fa-home"></i>,
       text: 'Home',
-      label: "HomeLink"
+      'aria-label': 'Home Page',
     },
     {
       path: '/property/create',
