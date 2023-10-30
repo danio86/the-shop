@@ -1,8 +1,10 @@
 # TheShop
 
+<img src="src/assets/screenshot-am-I-responsive.png" alt="Am I responsive">
+
 The Shop is a platform where users can upload and sell real estate properties. Once a property is created, the owner can edit and delete it. Other users can view the properties and make inquiries. These inquiries can also be edited and deleted. Additionally, there is an 'Interested' button that users can click. This allows the property owner to see that their property is of interest to others and potentially initiate contact. The entire platform can also be filtered for interesting properties.
 
-<!-- The Project can be seen [here](https://theshop.herokuapp.com/) -->
+The Project can be seen [here](https://the-shop-fe-75bf1203be46.herokuapp.com/)
 
 
 ## User Stories
@@ -220,7 +222,7 @@ The project was deployed using Code institut's mock for Heroku
         The Heroku app was linked to the repository
         Deploy was clicked.
 
-The live link can be found [here](https://theShop.herokuapp.com/)
+The live link can be found [here](https://the-shop-fe-75bf1203be46.herokuapp.com/)
 
 
 ## Credits 
