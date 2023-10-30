@@ -18,7 +18,7 @@ const SideBar = () => {
       name: 'home',
       icon: <i className="fas fa-home"></i>,
       text: 'Home',
-      'aria-label': 'Home Page',
+      
     },
     {
       path: '/property/create',
@@ -72,6 +72,7 @@ const SideBar = () => {
                 key={index}
                 className={styles.Link}
                 activeClassName={styles.Active}
+                aria-label= 'Home Page'
               >
                 <div className={styles.Icon}>
                   {item.icon}
