@@ -191,14 +191,14 @@ The Project can be seen [here](https://the-shop-fe-75bf1203be46.herokuapp.com/)
 <img src="src/assets/screenshot-html-val.png" alt="HTML-Val">
 
 - CSS Validation
-<img src="scr/static/images/screenshot-css-val.png" alt="CSS Validation">
+<img src="scr/assets/screenshot-css-val.png" alt="CSS Validation">
 
 - JSX Validation
     - with ES-Linter
 
 
 - Lighthouse
-<!-- <img src="assets/images/screenshot-lighthouse.png" alt="Lighthouse Desktop"> -->
+<img src="scr/assets/screenshot-lighthouse.png" alt="Lighthouse">
 
 
 
