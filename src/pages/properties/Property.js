@@ -143,7 +143,7 @@ const Property = (props) => {
             </OverlayTrigger>
           )}
           {count}
-          <Link to={`/property/${id}`}>
+          <Link to={`/property/${id}`} aria-label="Inquiry">
             <i className="far fa-comments" />
           </Link>
           {inquiries_count}
